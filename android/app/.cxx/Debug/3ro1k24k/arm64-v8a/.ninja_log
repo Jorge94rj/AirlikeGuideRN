@@ -1,0 +1,8 @@
+# ninja log v5
+1	55	0	/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/Debug/3ro1k24k/arm64-v8a/CMakeFiles/cmake.verify_globs	6292217740677564
+0	4547	1743192015904935201	CMakeFiles/appmodules.dir/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/build/generated/autolinking/src/main/jni/autolinking.cpp.o	ad80912f2e75ef8c
+0	5018	1743192016371864020	CMakeFiles/appmodules.dir/OnLoad.cpp.o	ca2f832791869738
+5018	5401	1743192016765886014	/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/build/intermediates/cxx/Debug/3ro1k24k/obj/arm64-v8a/libappmodules.so	860ea5d0c7d0b06
+0	90	0	/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/Debug/3ro1k24k/arm64-v8a/CMakeFiles/cmake.verify_globs	6292217740677564
+1	29	0	/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/Debug/3ro1k24k/arm64-v8a/CMakeFiles/cmake.verify_globs	6292217740677564
+1	30	0	/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/Debug/3ro1k24k/arm64-v8a/CMakeFiles/cmake.verify_globs	6292217740677564

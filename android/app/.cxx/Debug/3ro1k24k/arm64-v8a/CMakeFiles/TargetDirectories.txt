@@ -1,0 +1,3 @@
+/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/Debug/3ro1k24k/arm64-v8a/CMakeFiles/appmodules.dir
+/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/Debug/3ro1k24k/arm64-v8a/CMakeFiles/edit_cache.dir
+/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/Debug/3ro1k24k/arm64-v8a/CMakeFiles/rebuild_cache.dir

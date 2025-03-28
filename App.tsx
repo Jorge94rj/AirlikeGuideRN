@@ -12,16 +12,12 @@ import {
   StatusBar,
   StyleSheet,
   Text,
-  useColorScheme,
   View,
 } from 'react-native';
 
 import {
   Colors,
-  DebugInstructions,
   Header,
-  LearnMoreLinks,
-  ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
 type SectionProps = PropsWithChildren<{
@@ -29,14 +25,13 @@ type SectionProps = PropsWithChildren<{
 }>;
 
 function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
       <Text
         style={[
           styles.sectionTitle,
           {
-            color: isDarkMode ? Colors.white : Colors.black,
+            color: Colors.white,
           },
         ]}>
         {title}
@@ -45,7 +40,7 @@ function Section({children, title}: SectionProps): React.JSX.Element {
         style={[
           styles.sectionDescription,
           {
-            color: isDarkMode ? Colors.light : Colors.dark,
+            color: Colors.light,
           },
         ]}>
         {children}
@@ -55,10 +50,9 @@ function Section({children, title}: SectionProps): React.JSX.Element {
 }
 
 function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: Colors.darker,
   };
 
   /*
@@ -75,7 +69,7 @@ function App(): React.JSX.Element {
   return (
     <View style={backgroundStyle}>
       <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        barStyle={'light-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <ScrollView
@@ -85,24 +79,13 @@ function App(): React.JSX.Element {
         </View>
         <View
           style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
+            backgroundColor: Colors.black,
             paddingHorizontal: safePadding,
             paddingBottom: safePadding,
           }}>
           <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
+            <Text style={styles.highlight}>Test App.tsx</Text>
           </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
         </View>
       </ScrollView>
     </View>

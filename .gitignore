@@ -12,6 +12,9 @@ lerna-debug.log*
 /ios/build/
 /ios/Pods/
 
+#gradle
+/android/.gradle/buildOutputCleanup
+
 # Packager cache
 /.metro/
 

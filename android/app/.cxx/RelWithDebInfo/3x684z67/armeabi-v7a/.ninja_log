@@ -1,0 +1,5 @@
+# ninja log v5
+1	31	0	/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/RelWithDebInfo/3x684z67/armeabi-v7a/CMakeFiles/cmake.verify_globs	117f1d2865ba1f3c
+0	3076	1743256915869711947	CMakeFiles/appmodules.dir/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/build/generated/autolinking/src/main/jni/autolinking.cpp.o	1eeca622e12be5e7
+1	3521	1743256916313586050	CMakeFiles/appmodules.dir/OnLoad.cpp.o	c06f04181606bc1b
+3521	3637	1743256916438750360	/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/build/intermediates/cxx/RelWithDebInfo/3x684z67/obj/armeabi-v7a/libappmodules.so	448e3ef89d4677cb

@@ -1,0 +1,3 @@
+/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/RelWithDebInfo/3x684z67/armeabi-v7a/CMakeFiles/appmodules.dir
+/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/RelWithDebInfo/3x684z67/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/RelWithDebInfo/3x684z67/armeabi-v7a/CMakeFiles/rebuild_cache.dir

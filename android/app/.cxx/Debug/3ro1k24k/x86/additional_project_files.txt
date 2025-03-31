@@ -1,0 +1,7 @@
+/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/Debug/3ro1k24k/x86/RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/RNVectorIconsSpec-generated.cpp.o
+/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/Debug/3ro1k24k/x86/RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/react/renderer/components/RNVectorIconsSpec/ComponentDescriptors.cpp.o
+/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/Debug/3ro1k24k/x86/RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/react/renderer/components/RNVectorIconsSpec/EventEmitters.cpp.o
+/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/Debug/3ro1k24k/x86/RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/react/renderer/components/RNVectorIconsSpec/Props.cpp.o
+/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/Debug/3ro1k24k/x86/RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/react/renderer/components/RNVectorIconsSpec/RNVectorIconsSpecJSI-generated.cpp.o
+/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/Debug/3ro1k24k/x86/RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/react/renderer/components/RNVectorIconsSpec/ShadowNodes.cpp.o
+/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/Debug/3ro1k24k/x86/RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir/react/renderer/components/RNVectorIconsSpec/States.cpp.o

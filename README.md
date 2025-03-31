@@ -61,4 +61,18 @@ yarn ios
 
 If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+# Debugging
+To see logs run
+```sh
+npx react-native log-android
+```
+# Resources
+
+## React Navigation
+https://reactnavigation.org/docs/getting-started
+
+## Build icons with react-native-vector-icons
+https://www.npmjs.com/package/react-native-vector-icons#android-setup
+
+## TMDB API
+https://developer.themoviedb.org/reference/intro/getting-started

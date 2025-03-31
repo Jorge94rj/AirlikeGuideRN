@@ -7,3 +7,6 @@
 /Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/Debug/3ro1k24k/x86_64/rnscreens_autolinked_build/CMakeFiles/react_codegen_rnscreens.dir
 /Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/Debug/3ro1k24k/x86_64/rnscreens_autolinked_build/CMakeFiles/edit_cache.dir
 /Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/Debug/3ro1k24k/x86_64/rnscreens_autolinked_build/CMakeFiles/rebuild_cache.dir
+/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/Debug/3ro1k24k/x86_64/RNVectorIconsSpec_autolinked_build/CMakeFiles/react_codegen_RNVectorIconsSpec.dir
+/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/Debug/3ro1k24k/x86_64/RNVectorIconsSpec_autolinked_build/CMakeFiles/edit_cache.dir
+/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/Debug/3ro1k24k/x86_64/RNVectorIconsSpec_autolinked_build/CMakeFiles/rebuild_cache.dir

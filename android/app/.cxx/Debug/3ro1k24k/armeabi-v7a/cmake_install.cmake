@@ -46,6 +46,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/Debug/3ro1k24k/armeabi-v7a/safeareacontext_autolinked_build/cmake_install.cmake")
   include("/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/Debug/3ro1k24k/armeabi-v7a/rnscreens_autolinked_build/cmake_install.cmake")
+  include("/Users/jorgereyes/dev/projects/AirlikeGuideRN/android/app/.cxx/Debug/3ro1k24k/armeabi-v7a/RNVectorIconsSpec_autolinked_build/cmake_install.cmake")
 
 endif()
 

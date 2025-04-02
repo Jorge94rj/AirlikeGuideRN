@@ -9,6 +9,7 @@ lerna-debug.log*
 
 # Compiled output
 .cxx/
+/android/.kotlin/
 /android/app/build/
 /ios/build/
 /ios/Pods/

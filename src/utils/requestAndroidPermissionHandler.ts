@@ -1,6 +1,4 @@
-import { NativeModules, Permission, PermissionsAndroid } from 'react-native';
-
-const { ManageStoragePermission } = NativeModules;
+import { Permission, PermissionsAndroid } from 'react-native';
 
 type AndroidPermissions = Record<string, Permission>;
 
@@ -37,12 +35,4 @@ export const requestAndroidPermision = async (options: RequestPermissionOptions)
 
 export const hasAndroidPermission = async (permission: Permission) => {
     return await PermissionsAndroid.check(permission);
-};
-
-export const requestStoreManagementPermission = () => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
-    ManageStoragePermission.requestManageExternalStoragePermission(
-        (message: unknown) => console.log('SUCCESS', message),
-        (error: unknown) => console.log('ERROR', error),
-    );
 };

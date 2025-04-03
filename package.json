@@ -8,7 +8,8 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "dev-android": "react-native run-android && react-native log-android"
+    "dev-android": "react-native run-android && react-native log-android",
+    "clean-android": "cd android && ./gradlew clean"
   },
   "dependencies": {
     "@react-native-documents/picker": "^10.1.1",

@@ -8,9 +8,15 @@ lerna-debug.log*
 .pnpm-debug.log*
 
 # Compiled output
+.cxx/
+/android/.kotlin/
 /android/app/build/
 /ios/build/
 /ios/Pods/
+
+#gradle
+/android/.gradle/
+/android/build/
 
 # Packager cache
 /.metro/
@@ -29,6 +35,9 @@ lerna-debug.log*
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Vendor
+/vendor
 
 # Secrets
 *.keystore

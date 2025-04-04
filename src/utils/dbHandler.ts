@@ -1,4 +1,5 @@
 import { pick, keepLocalCopy, LocalCopyResponse } from '@react-native-documents/picker';
+import { open } from 'react-native-nitro-sqlite';
 import RNFS from 'react-native-fs';
 
 const DB_NAME = 'airlike.db';
@@ -49,5 +50,11 @@ export const isDBImported = async () => {
 };
 
 export const openDB = async () => {
-   
+    try {
+        const db = open({ name: DB_NAME, location: DB_DIR_NAME });
+        const results = await db.executeAsync('SELECT * FROM media LIMIT 10');
+        console.log('RESULTS=>', results.rows);
+    } catch (err: unknown) {
+        console.error(err);
+    }
 };

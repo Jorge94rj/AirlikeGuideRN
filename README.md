@@ -21,6 +21,13 @@ With Metro running, open a new terminal window/pane from the root of your React 
 
 ### Android
 
+If you haven't generated a keystore yet, run the following command
+
+```sh
+npm run generate-keystore-android
+# Use the password specified in this file android/app/build.gradle, which by default is android
+```
+
 ```sh
 # Using npm
 npm run android

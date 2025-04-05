@@ -9,7 +9,8 @@
     "start": "react-native start",
     "test": "jest",
     "dev-android": "react-native run-android && react-native log-android",
-    "clean-android": "cd android && ./gradlew clean"
+    "clean-android": "cd android && ./gradlew clean",
+    "generate-keystore-android": "keytool -genkeypair -v -keystore android/app/debug.keystore -keyalg RSA -keysize 2048 -validity 10000 -dname 'CN=debug, OU=debug, O=debug, L=debug, ST=debug, C=US' -alias androiddebugkey"
   },
   "dependencies": {
     "@react-native-documents/picker": "^10.1.1",

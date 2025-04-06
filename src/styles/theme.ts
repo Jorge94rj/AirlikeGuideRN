@@ -4,6 +4,7 @@ export const theme = {
         secondary: '#000',
         dark: '#396b07',
         light: '#fff',
+        warning: '#fcba03',
     },
     fontSize: {
         xsmall: 16,

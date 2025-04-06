@@ -1,7 +1,10 @@
-import { importDB, ImportDBStatus, openDB } from '../utils/dbHandler';
+// import { useNavigation } from '@react-navigation/native';
+import { importDB, ImportDBStatus } from '../utils/dbHandler';
 import { showDefaultToast } from '../utils/toastHandler';
 
 export const useImportDBViewModel = () => {
+    // const navigation = useNavigation();
+
     const importDBHandler = () => {
         void (async () => {
             const importDBStatus: ImportDBStatus = await importDB();
@@ -16,8 +19,7 @@ export const useImportDBViewModel = () => {
                     showDefaultToast('There was an error trying to import the DB');
                     break;
             }
-            // Test
-            await openDB();
+            // navigation.navigate('Channels', {});
         })();
     };
 

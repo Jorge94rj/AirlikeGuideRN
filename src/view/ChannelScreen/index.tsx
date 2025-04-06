@@ -1,18 +1,28 @@
 import { Text, View } from 'react-native';
 import { styles } from './index.styles';
-// Storage
-// https://medium.com/@penghuili/internal-and-external-storage-in-react-native-4094120664d4
-// SQLite integration
-// https://www.npmjs.com/package/react-native-sqlite-storage
+import { useChannelViewModel } from '../../viewModel/useChannelViewModel';
+
 // Blocks info
 // https://developer.themoviedb.org/reference/search-tv
-// Repo MVVM
-// https://github.com/Jorge94rj/rn-test/tree/feat/list-pagination
 
 const Channel = () => {
+    const { channels, warningMessage } = useChannelViewModel();
+
+    const { screenContainer, title, warningContainer, warningText } = styles;
+
     return (
-        <View style={styles.screenContainer}>
-            <Text style={styles.title}>Channels</Text>
+        <View style={screenContainer}>
+            <Text style={title}>Channels</Text>
+
+            {channels?.map(channel => (
+                <Text key={channel.id} style={warningText}>{channel.name}</Text>
+            ))}
+
+            {warningMessage && (
+                <View style={warningContainer}>
+                    <Text style={warningText}>{warningMessage}</Text>
+                </View>
+            )}
         </View>
     );
 };

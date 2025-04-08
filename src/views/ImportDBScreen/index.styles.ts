@@ -4,11 +4,10 @@ import { theme } from '../../styles/theme';
 const { colors } = theme;
 
 export const styles = StyleSheet.create({
-    screenContainer: {
+    contentContainer: {
         flex: 1,
-        backgroundColor: colors.secondary,
-        alignItems: 'center',
         justifyContent: 'center',
+        alignItems: 'center'
     },
     importButton: {
         backgroundColor: colors.primary

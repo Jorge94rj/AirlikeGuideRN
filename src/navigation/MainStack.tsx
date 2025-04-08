@@ -3,6 +3,12 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { useGetGlobalScreenOptions } from '../hooks/useGetGlobalScreenOptions';
 import HomeTabs from './HomeTabs';
+import ScheduleScreen from '../views/ScheduleScreen';
+
+export type MainStackParamList = {
+    Home: undefined;
+    Schedule: { id: number };
+}
 
 const Stack = createNativeStackNavigator();
 
@@ -15,6 +21,11 @@ const MainStack = () => {
                 <Stack.Screen
                     name="Home"
                     component={HomeTabs}
+                    options={globalScreenOptions}
+                />
+                <Stack.Screen 
+                    name="Schedule"
+                    component={ScheduleScreen}
                     options={globalScreenOptions}
                 />
             </Stack.Navigator>

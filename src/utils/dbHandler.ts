@@ -1,5 +1,5 @@
 import { pick, keepLocalCopy, LocalCopyResponse } from '@react-native-documents/picker';
-import { open, QueryResultRow } from 'react-native-nitro-sqlite';
+import { open, QueryResultRow, SQLiteQueryParams } from 'react-native-nitro-sqlite';
 import RNFS from 'react-native-fs';
 
 const DB_NAME = 'airlike.db';
@@ -49,10 +49,10 @@ export const isDBImported = async (): Promise<boolean> => {
     return await RNFS.exists(DB_FILE_PATH);
 };
 
-export async function executeQuery(query: string): Promise<QueryResultRow[] | undefined> {
+export async function executeQuery(query: string, params?: SQLiteQueryParams): Promise<QueryResultRow[] | undefined> {
     try {
         const db = open({ name: DB_NAME, location: DB_DIR_NAME });
-        const results = await db.executeAsync(query);
+        const results = await db.executeAsync(query, params);
         db.close();
         return results.rows?._array;
     } catch (err: unknown) {

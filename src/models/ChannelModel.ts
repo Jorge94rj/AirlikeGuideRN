@@ -2,7 +2,7 @@ import { QueryResultRow } from 'react-native-nitro-sqlite';
 import { executeQuery, isDBImported } from '../utils/dbHandler';
 
 interface Channel {
-    id: string;
+    id: number;
     name: string;
     thumbnail: string;
     icon: string;
@@ -11,7 +11,7 @@ interface Channel {
 
 export type ChannelQueryResultRow = QueryResultRow & Channel;
 
-const GET_CHANNELS_QUERY = 'SELECT * FROM channel';
+const GET_CHANNELS_QUERY = 'SELECT id, name, thumbnail, icon, fanart FROM channel';
 
 export const getChannels = async (): Promise<ChannelQueryResultRow[] | undefined> => {
     const isDbImported = await isDBImported();

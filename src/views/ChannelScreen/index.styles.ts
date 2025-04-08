@@ -1,21 +1,14 @@
 import { StyleSheet } from 'react-native';
 import { theme } from '../../styles/theme';
 
-const { colors, fontSize } = theme;
+const { fontSize } = theme;
 
 export const styles = StyleSheet.create({
-    screenContainer: {
-        flex: 1,
-        backgroundColor: colors.secondary,
-        overflow: 'scroll',
-        padding: fontSize.medium
+    channelsContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: 24
     },
-    title: {
-        color: colors.light,
-        fontSize: fontSize.large
-    },
-    channelsContainer: {},
-    channelItem: {},
     warningContainer: {
         flex: 1,
         justifyContent: 'center',

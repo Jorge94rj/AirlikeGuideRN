@@ -2,8 +2,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import { useGetGlobalScreenOptions } from '../hooks/useGetGlobalScreenOptions';
-import ChannelScreen from '../view/ChannelScreen';
-import ImportDBScreen from '../view/ImportDBScreen';
+import ChannelScreen from '../views/ChannelScreen';
+import ImportDBScreen from '../views/ImportDBScreen';
 
 const Tab = createBottomTabNavigator();
 

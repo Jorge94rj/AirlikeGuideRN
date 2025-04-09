@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { RouteProp, useRoute } from '@react-navigation/native';
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import { ListMapper } from '../types';
 import { MainStackParamList } from '../navigation/MainStack';
 import { getScheduleWithImages, ScheduleWithImagesQueryResultRow } from '../models/ScheduleModel';
@@ -18,6 +18,7 @@ const mapScheduleQueryResultListToItemListProps: ListMapper<ScheduleWithImagesQu
 };
 
 export const useScheduleViewModel = () => {
+    const { goBack } = useNavigation();
     const { params } = useRoute<RouteProp<MainStackParamList, 'Schedule'>>();
     const { id, name } = params;
 
@@ -42,6 +43,7 @@ export const useScheduleViewModel = () => {
     return {
         channelName: name,
         weekdayName,
-        scheduleList
+        scheduleList,
+        goBack
     };
 };

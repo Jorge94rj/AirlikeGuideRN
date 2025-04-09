@@ -35,8 +35,10 @@ export const importDB = async (): Promise<ImportDBStatus> => {
             await RNFS.mkdir(DB_DIR_PATH);
         }
 
+        const tmpDir = localUri.replace(/(\/[^/]+)$/, '');
+
         await RNFS.copyFile(localUri, DB_FILE_PATH);
-        await RNFS.unlink(localUri);
+        await RNFS.unlink(tmpDir);
 
         return status === 'success' ? 'imported' : 'error';
     } catch (err: unknown) {

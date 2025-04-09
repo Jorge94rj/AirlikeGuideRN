@@ -32,9 +32,10 @@ const ImageWrapper = ({
         return (
             <Icon
                 name={defaultFallbackIcon ?? 'default'}
-                style={[style, { tintColor: fallbackIconColor }]}
+                style={style}
                 width={fallbackIconSize}
                 height={fallbackIconSize}
+                color={fallbackIconColor}
             />);
     } else {
         return (

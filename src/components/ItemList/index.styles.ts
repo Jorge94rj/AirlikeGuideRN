@@ -11,7 +11,8 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         borderBottomWidth: 1,
         borderBottomColor: colors.primary,
-        padding: gutter * 2
+        paddingVertical: gutter * 2,
+        paddingHorizontal: gutter * 3
     },
     itemContainerActive: {
         backgroundColor: colors.light        

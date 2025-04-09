@@ -16,7 +16,7 @@ const mapChannelQueryResultRowToCircleButtonProps: Mapper<ChannelQueryResultRow,
 });
 
 export const useChannelViewModel = () => {
-    const navigation = useNavigation<NativeStackNavigationProp<MainStackParamList>>();
+    const { navigate } = useNavigation<NativeStackNavigationProp<MainStackParamList>>();
 
     const [channels, setChannels] = useState<ChannelQueryResultRow[] | undefined>(undefined);
     const [warningMessage, setWarningMessage] = useState('');
@@ -38,7 +38,7 @@ export const useChannelViewModel = () => {
 
     const handleChannelSelection = (id: number) => {
         const { name } = channels?.find(channel => channel.id === id) ?? {};
-        navigation.navigate('Schedule', { id, name });
+        navigate('Schedule', { id, name });
     };
 
     return {

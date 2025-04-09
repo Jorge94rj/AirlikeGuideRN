@@ -28,5 +28,11 @@ export const isCurrentTimeBetweenRange = (from: string, to: string): boolean => 
     const currentHourFormated = currentHour < 10 ? `0${currentHour}` : currentHour;
     const currentMinutesFormated = currentMinutes < 10 ? `0${currentMinutes}` : currentMinutes;
     const currentTimeFormated = `${currentHourFormated}:${currentMinutesFormated}`;
-    return currentTimeFormated >= from && currentTimeFormated <= to;
+
+    const currentDate = new Date(`1970-01-01T${currentTimeFormated}Z`);
+    const fromDate = new Date(`1970-01-01T${from}Z`);
+    const toDate = new Date(`1970-01-01T${to}Z`);
+    const includesNextDay = from.includes('23:') && to.includes('00:');
+
+    return (currentDate >= fromDate && currentDate <= toDate && !includesNextDay) || (currentDate >= fromDate && includesNextDay);
 };

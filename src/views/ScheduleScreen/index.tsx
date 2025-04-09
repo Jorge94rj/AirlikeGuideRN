@@ -5,7 +5,7 @@ import { styles } from './index.styles';
 import ItemList from '../../components/ItemList';
 
 const ScheduleScreen = () => {
-    const { scheduleList } = useScheduleViewModel();
+    const {  weekdayName, scheduleList } = useScheduleViewModel();
 
     const { screenContainer, screenTitle } = globalStyles;
 
@@ -14,7 +14,7 @@ const ScheduleScreen = () => {
     return (
         <View style={{ ...screenContainer, padding: 0 }}>
             <View style={descriptionContainer}>
-                <Text style={screenTitle}>Schedule</Text>
+                <Text style={screenTitle}>Schedule for {weekdayName}</Text>
             </View>
             <ItemList list={scheduleList} />
         </View>

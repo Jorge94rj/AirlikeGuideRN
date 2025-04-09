@@ -3,7 +3,7 @@ import { RouteProp, useRoute } from '@react-navigation/native';
 import { ListMapper } from '../types';
 import { MainStackParamList } from '../navigation/MainStack';
 import { getScheduleWithImages, ScheduleWithImagesQueryResultRow } from '../models/ScheduleModel';
-import { isCurrentTimeBetweenRange, mapJsWeekdayToDBWeekdayId } from '../utils/dateHelpers';
+import { isCurrentTimeBetweenRange, mapDBWeedkayIdToWeekdayName, mapJsWeekdayToDBWeekdayId } from '../utils/dateHelpers';
 import { ItemProps } from '../components/ItemList';
 
 const mapScheduleQueryResultListToItemListProps: ListMapper<ScheduleWithImagesQueryResultRow, ItemProps> = (schedule) => {
@@ -18,15 +18,16 @@ const mapScheduleQueryResultListToItemListProps: ListMapper<ScheduleWithImagesQu
 
 export const useScheduleViewModel = () => {
     const { params } = useRoute<RouteProp<MainStackParamList, 'Schedule'>>();
+    const { id } = params;
 
     const [scheduleList, setScheduleList] = useState<ItemProps[]>();
 
+    const dayId = mapJsWeekdayToDBWeekdayId[new Date().getDay()];
+    const weekdayName = mapDBWeedkayIdToWeekdayName[dayId];
+
     useEffect(() => {
-        const channelId = params.id;
-        const dayId = mapJsWeekdayToDBWeekdayId[new Date().getDay()];
-        
         void (async () => {
-            const scheduleResult = await getScheduleWithImages(channelId, dayId);
+            const scheduleResult = await getScheduleWithImages(id, dayId);
             const itemProps = mapScheduleQueryResultListToItemListProps(scheduleResult);
             setScheduleList(itemProps);
         })();
@@ -34,6 +35,7 @@ export const useScheduleViewModel = () => {
     }, []);
 
     return {
+        weekdayName,
         scheduleList
     };
 };

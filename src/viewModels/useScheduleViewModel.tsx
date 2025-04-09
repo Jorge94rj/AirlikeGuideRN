@@ -5,6 +5,7 @@ import { MainStackParamList } from '../navigation/MainStack';
 import { getScheduleWithImages, ScheduleWithImagesQueryResultRow } from '../models/ScheduleModel';
 import { isCurrentTimeBetweenRange, mapDBWeedkayIdToWeekdayName, mapJsWeekdayToDBWeekdayId } from '../utils/dateHelpers';
 import { ItemProps } from '../components/ItemList';
+import { useGlobalLoader } from '../contexts/GlobalLoaderContext';
 
 const mapScheduleQueryResultListToItemListProps: ListMapper<ScheduleWithImagesQueryResultRow, ItemProps> = (schedule) => {
     return schedule?.map(item => ({
@@ -20,6 +21,8 @@ export const useScheduleViewModel = () => {
     const { params } = useRoute<RouteProp<MainStackParamList, 'Schedule'>>();
     const { id, name } = params;
 
+    const { showGlobalLoader, hideGlobalLoader } = useGlobalLoader();
+
     const [scheduleList, setScheduleList] = useState<ItemProps[]>();
 
     const dayId = mapJsWeekdayToDBWeekdayId[new Date().getDay()];
@@ -27,9 +30,11 @@ export const useScheduleViewModel = () => {
 
     useEffect(() => {
         void (async () => {
+            showGlobalLoader();
             const scheduleResult = await getScheduleWithImages(id, dayId);
             const itemProps = mapScheduleQueryResultListToItemListProps(scheduleResult);
             setScheduleList(itemProps);
+            hideGlobalLoader();
         })();
 
     }, []);

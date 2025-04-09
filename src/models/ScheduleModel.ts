@@ -1,7 +1,7 @@
 import { QueryResultRow } from 'react-native-nitro-sqlite';
+import Config from 'react-native-config';
 import { executeQuery } from '../utils/dbHandler';
 import { httpGet } from '../utils/apiHandler';
-import { TMDB_BASE_URL, TMDB_IMG_URL, TMDB_TOKEN } from '../utils/apiConfig';
 
 interface Schedule {
     name: string;
@@ -20,6 +20,8 @@ type TvSeries = {
 type SearchTvSeriesResponse = {
     results: TvSeries[];
 }
+
+const { TMDB_BASE_URL, TMDB_IMG_URL, TMDB_TOKEN } = Config;
 
 const GET_SCHEDULE_QUERY = `
     SELECT b.name, b.start_time, b.end_time FROM channel_day_block cdb

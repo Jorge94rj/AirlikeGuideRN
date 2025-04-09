@@ -18,7 +18,7 @@ const mapScheduleQueryResultListToItemListProps: ListMapper<ScheduleWithImagesQu
 
 export const useScheduleViewModel = () => {
     const { params } = useRoute<RouteProp<MainStackParamList, 'Schedule'>>();
-    const { id } = params;
+    const { id, name } = params;
 
     const [scheduleList, setScheduleList] = useState<ItemProps[]>();
 
@@ -35,6 +35,7 @@ export const useScheduleViewModel = () => {
     }, []);
 
     return {
+        channelName: name,
         weekdayName,
         scheduleList
     };

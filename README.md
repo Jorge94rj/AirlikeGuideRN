@@ -86,6 +86,9 @@ https://github.com/margelo/react-native-nitro-sqlite
 ## Build icons with react-native-vector-icons
 https://www.npmjs.com/package/react-native-vector-icons#android-setup
 
+## Use .env files with react-native-config
+https://www.npmjs.com/package/react-native-config
+
 ## TMDB API
 https://developer.themoviedb.org/reference/intro/getting-started
 

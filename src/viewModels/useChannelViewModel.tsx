@@ -37,7 +37,8 @@ export const useChannelViewModel = () => {
     );
 
     const handleChannelSelection = (id: number) => {
-        navigation.navigate('Schedule', { id });
+        const { name } = channels?.find(channel => channel.id === id) ?? {};
+        navigation.navigate('Schedule', { id, name });
     };
 
     return {

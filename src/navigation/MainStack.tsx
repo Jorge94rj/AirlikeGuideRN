@@ -7,7 +7,7 @@ import ScheduleScreen from '../views/ScheduleScreen';
 
 export type MainStackParamList = {
     Home: undefined;
-    Schedule: { id: number };
+    Schedule: { id: number, name: string | undefined };
 }
 
 const Stack = createNativeStackNavigator();

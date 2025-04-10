@@ -1,25 +1,11 @@
-import { QueryResultRow } from 'react-native-nitro-sqlite';
 import Config from 'react-native-config';
 import { executeQuery } from '../utils/dbHandler';
 import { httpGet } from '../utils/apiHandler';
-
-interface Schedule {
-    name: string;
-    start_time: string;
-    end_time: string;
-}
-
-export type ScheduleQueryResultRow = QueryResultRow & Schedule;
-
-export type ScheduleWithImagesQueryResultRow = ScheduleQueryResultRow & { image: string };
-
-type TvSeries = {
-    poster_path: string;
-}
-
-type SearchTvSeriesResponse = {
-    results: TvSeries[];
-}
+import { 
+    ContentBlockQueryResultRow,
+    ContentBlockWithImageQueryResultRow,
+    SearchTvSeriesResponse 
+} from './types';
 
 const { TMDB_BASE_URL, TMDB_IMG_URL, TMDB_TOKEN } = Config;
 
@@ -30,15 +16,15 @@ const GET_SCHEDULE_QUERY = `
     WHERE channel_id = ? and cd.day_id = ?
 `;
 
-export const getSchedule = async (channelId: number, dayId: number): Promise<ScheduleQueryResultRow[] | undefined> => {
-    return (await executeQuery(GET_SCHEDULE_QUERY, [channelId, dayId])) as ScheduleQueryResultRow[];
+export const getSchedule = async (channelId: number, dayId: number): Promise<ContentBlockQueryResultRow[] | undefined> => {
+    return (await executeQuery(GET_SCHEDULE_QUERY, [channelId, dayId])) as ContentBlockQueryResultRow[];
 };
 
 export const getScheduleWithImages = async (
     channelId: number,
     dayId: number
-): Promise<ScheduleWithImagesQueryResultRow[] | undefined> => {
-    const scheduleResult = (await getSchedule(channelId, dayId)) as ScheduleWithImagesQueryResultRow[];
+): Promise<ContentBlockWithImageQueryResultRow[] | undefined> => {
+    const scheduleResult = (await getSchedule(channelId, dayId)) as ContentBlockWithImageQueryResultRow[];
     for (let i = 0; i < scheduleResult.length; i++) {
         const row = scheduleResult[i];
         const { results } = await httpGet<SearchTvSeriesResponse>(`${TMDB_BASE_URL}?query=${row.name}`, TMDB_TOKEN);

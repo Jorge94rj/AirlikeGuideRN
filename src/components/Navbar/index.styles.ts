@@ -6,7 +6,9 @@ const { gutter, fontSize, colors } = theme;
 export const styles = StyleSheet.create({
     navbarContainer: {
         flexDirection: 'row',
-        padding: gutter * 3,
+        paddingHorizontal: gutter * 3,
+        paddingVertical: gutter * 2,
+        backgroundColor: colors.secondary
     },
     infoContainer: {
         flexDirection: 'column',

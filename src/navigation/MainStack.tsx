@@ -4,10 +4,18 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useGetGlobalScreenOptions } from '../hooks/useGetGlobalScreenOptions';
 import HomeTabs from './HomeTabs';
 import ScheduleScreen from '../views/ScheduleScreen';
+import AiringScreen from '../views/AiringScreen';
+
+type ChannelParams = {
+    id: number,
+    name?: string,
+    dayId?: number
+}
 
 export type MainStackParamList = {
     Home: undefined;
-    Schedule: { id: number, name: string | undefined };
+    Schedule: ChannelParams;
+    Airing: ChannelParams;
 }
 
 const Stack = createNativeStackNavigator();
@@ -21,6 +29,11 @@ const MainStack = () => {
                 <Stack.Screen
                     name="Home"
                     component={HomeTabs}
+                    options={globalScreenOptions}
+                />
+                <Stack.Screen 
+                    name="Airing"
+                    component={AiringScreen}
                     options={globalScreenOptions}
                 />
                 <Stack.Screen 

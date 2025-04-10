@@ -21,15 +21,20 @@ export const mapDBWeedkayIdToWeekdayName: Record<number, string> = {
     7: 'Sunday',
 };
 
-export const isCurrentTimeBetweenRange = (from: string, to: string): boolean => {
+export const getCurrentTimeFormatted = (): string => {
     const now = new Date();
     const currentHour = now.getHours();
     const currentMinutes = now.getMinutes();
-    const currentHourFormated = currentHour < 10 ? `0${currentHour}` : currentHour;
-    const currentMinutesFormated = currentMinutes < 10 ? `0${currentMinutes}` : currentMinutes;
-    const currentTimeFormated = `${currentHourFormated}:${currentMinutesFormated}`;
+    const currentHourFormatted = currentHour < 10 ? `0${currentHour}` : currentHour;
+    const currentMinutesFormatted = currentMinutes < 10 ? `0${currentMinutes}` : currentMinutes;
+    
+    return `${currentHourFormatted}:${currentMinutesFormatted}`;
+};
 
-    const currentDate = new Date(`1970-01-01T${currentTimeFormated}Z`);
+export const isCurrentTimeBetweenRange = (from: string, to: string): boolean => {
+    const currentTimeFormatted = getCurrentTimeFormatted();
+
+    const currentDate = new Date(`1970-01-01T${currentTimeFormatted}Z`);
     const fromDate = new Date(`1970-01-01T${from}Z`);
     const toDate = new Date(`1970-01-01T${to}Z`);
     const includesNextDay = from.includes('23:') && to.includes('00:');

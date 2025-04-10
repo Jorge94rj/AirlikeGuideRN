@@ -4,7 +4,7 @@ import { useChannelViewModel } from '../../viewModels/useChannelViewModel';
 import { globalStyles } from '../../styles/global';
 import CircleButton from '../../components/CircleButton';
 
-const Channel = () => {
+const ChannelScreen = () => {
     const { 
         channels,
         warningMessage,
@@ -48,4 +48,4 @@ const Channel = () => {
     );
 };
 
-export default Channel;
+export default ChannelScreen;

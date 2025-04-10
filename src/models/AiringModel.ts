@@ -4,7 +4,6 @@ import { httpGet } from '../utils/apiHandler';
 import { getCurrentTimeFormatted } from '../utils/dateHelpers';
 import { 
     ContentBlockQueryResultRow,
-    ContentBlockWithImageQueryResultRow,
     ContentBlockWithInfoQueryResultRow,
     SearchTvSeriesResponse 
 } from './types';
@@ -19,22 +18,25 @@ const GET_CURRENT_CONTENT_QUERY = `
 	AND ? >= b.start_time AND ? <= b. end_time
 `;
 
-export const getCurrentContent = async (channelId: number, dayId: number): Promise<ContentBlockQueryResultRow[] | undefined> => {
+export const getCurrentContent = async (channelId: number, dayId: number): Promise<ContentBlockQueryResultRow> => {
     const currentTimeFormatted = getCurrentTimeFormatted();
-    return (await executeQuery(GET_CURRENT_CONTENT_QUERY, [
+    const contentResult = (await executeQuery(GET_CURRENT_CONTENT_QUERY, [
         channelId,
         dayId,
         currentTimeFormatted,
         currentTimeFormatted,
     ])) as ContentBlockQueryResultRow[];
+
+    return contentResult ? contentResult[0] : { name: '', start_time: '', end_time: '' };
 };
 
 export const getCurrentContentWithInfo = async (channelId: number, dayId: number): Promise<ContentBlockWithInfoQueryResultRow> => {
-    const contentResult = (await getCurrentContent(channelId, dayId)) as ContentBlockWithImageQueryResultRow[];
-    const content = contentResult && contentResult[0];
+    const content = await getCurrentContent(channelId, dayId);
+    
     const { results } = await httpGet<SearchTvSeriesResponse>(`${TMDB_BASE_URL}?query=${content.name}`, TMDB_TOKEN);
     const { overview, poster_path } = results[0] ?? {};
     content.overview = overview;
     content.image = `${TMDB_IMG_URL}${poster_path}`;
+    
     return content as ContentBlockWithInfoQueryResultRow;
 };

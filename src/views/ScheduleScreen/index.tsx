@@ -5,7 +5,13 @@ import Navbar from '../../components/Navbar';
 import ItemList from '../../components/ItemList';
 
 const ScheduleScreen = () => {
-    const { channelName, weekdayName, scheduleList, goBack } = useScheduleViewModel();
+    const { 
+        hideChannelName,
+        channelName,
+        weekdayName,
+        scheduleList,
+        goBack 
+    } = useScheduleViewModel();
 
     const { screenContainer } = globalStyles;
 
@@ -13,7 +19,7 @@ const ScheduleScreen = () => {
         <View style={{ ...screenContainer, padding: 0 }}>
             <Navbar 
                 title={`Schedule for ${weekdayName}`}
-                subTitle={channelName}
+                subTitle={hideChannelName ? '' : channelName}
                 onPress={goBack} 
             />
             <ItemList list={scheduleList} />

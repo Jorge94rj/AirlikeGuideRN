@@ -5,6 +5,7 @@ import { theme } from './styles/theme';
 import MainStack from './navigation/MainStack';
 import { GlobalLoaderProvider } from './contexts/GlobalLoaderContext';
 import GlobalLoader from './globalComponents/GlobalLoader';
+import { SettingsProvider } from './contexts/SettingsContext';
 
 // TO DO: use when adding theme switch feature
 /** 
@@ -16,12 +17,14 @@ function App(): React.JSX.Element {
     const { colors } = theme;
 
     return (
-        <GlobalLoaderProvider>
-            <GlobalLoader />
-            <SafeAreaView style={{ flex: 1, backgroundColor: colors.secondary }}>
-                <MainStack />
-            </SafeAreaView>
-        </GlobalLoaderProvider>
+        <SettingsProvider>
+            <GlobalLoaderProvider>
+                <GlobalLoader />
+                <SafeAreaView style={{ flex: 1, backgroundColor: colors.secondary }}>
+                    <MainStack />
+                </SafeAreaView>
+            </GlobalLoaderProvider>
+        </SettingsProvider>
     );
 }
 

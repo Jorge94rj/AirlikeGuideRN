@@ -1,13 +1,14 @@
 import { Pressable, ScrollView, Text, View } from 'react-native';
 import { globalStyles } from '../../styles/global';
-import Navbar from '../../components/Navbar';
-import { useAiringViewModel } from '../../viewModels/useAiringViewModel';
-import ImageWrapper from '../../components/ImageWrapper';
 import { styles } from './index.styles';
+import { useAiringViewModel } from '../../viewModels/useAiringViewModel';
+import Navbar from '../../components/Navbar';
+import ImageWrapper from '../../components/ImageWrapper';
 import DayPicker from '../../components/DayPicker';
 
 const AiringScreen = () => {
-    const { 
+    const {
+        hideChannelName, 
         channelName,
         weekdayName,
         scheduleDay,
@@ -17,7 +18,7 @@ const AiringScreen = () => {
         goBack
     } = useAiringViewModel();
 
-    const { name, start_time, end_time, overview, image } = contentBlockInfo ?? {};
+    const { name, start_time, end_time, image, overview } = contentBlockInfo;
 
     const { screenContainer } = globalStyles;
     
@@ -37,7 +38,7 @@ const AiringScreen = () => {
         <>
             <Navbar
                 title='Airing now on'
-                subTitle={channelName}
+                subTitle={hideChannelName ? '' : channelName}
                 onPress={goBack}
             />
             <View style={screenContainer}>
@@ -47,10 +48,18 @@ const AiringScreen = () => {
                 </View>
                 <View style={descriptionContainer}>
                     <View style={imageContainer}>
-                        <ImageWrapper uri={image} width={128} height={128} defaultFallbackIcon='video' fallbackIconSize={96} />
+                        <ImageWrapper 
+                            uri={image as string}
+                            width={128}
+                            height={128}
+                            defaultFallbackIcon='video'
+                            fallbackIconSize={96} 
+                        />
                     </View>
                     <ScrollView style={overviewScrollContainer} showsVerticalScrollIndicator={true}>
-                        <Text style={overviewText}>{overview ? overview : 'No description avaliable'}</Text>
+                        <Text style={overviewText}>
+                            {overview ? overview as string : 'No description avaliable'}
+                        </Text>
                     </ScrollView>
                 </View>
                 <View style={scheduleContainer}>

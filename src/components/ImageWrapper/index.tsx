@@ -3,7 +3,7 @@ import { Image, ImageStyle, StyleProp } from 'react-native';
 import Icon from '../Icon';
 
 type ImageWrapperProps = {
-    uri: string | undefined;
+    uri?: string;
     width: number;
     height: number;
     style?: StyleProp<ImageStyle>;

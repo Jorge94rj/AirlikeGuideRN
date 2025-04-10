@@ -5,6 +5,8 @@ import { Mapper } from '../types';
 import { ChannelQueryResultRow, getChannels } from '../models/ChannelModel';
 import { MainStackParamList } from '../navigation/MainStack';
 import { CircleButtonProps } from '../components/CircleButton';
+import { useSettingsContext } from '../contexts/SettingsContext';
+import { Settings } from '../utils/configFileHandler';
 
 const mapChannelQueryResultRowToCircleButtonProps: Mapper<ChannelQueryResultRow, CircleButtonProps> = (channel) => ({
     id: channel.id,
@@ -18,8 +20,13 @@ const mapChannelQueryResultRowToCircleButtonProps: Mapper<ChannelQueryResultRow,
 export const useChannelViewModel = () => {
     const { navigate } = useNavigation<NativeStackNavigationProp<MainStackParamList>>();
 
+    const { settings } = useSettingsContext();
+
     const [channels, setChannels] = useState<ChannelQueryResultRow[] | undefined>(undefined);
     const [warningMessage, setWarningMessage] = useState('');
+
+    const hideChannelLogos = settings[Settings.HideChannelLogos];
+    const hideChannelNames = settings[Settings.HideChannelNames];
 
     useFocusEffect(
         useCallback(() => {
@@ -42,6 +49,8 @@ export const useChannelViewModel = () => {
     };
 
     return {
+        hideChannelLogos,
+        hideChannelNames,
         channels,
         warningMessage,
         handleChannelSelection,

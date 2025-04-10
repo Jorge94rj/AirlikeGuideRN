@@ -3,9 +3,11 @@ import { MainStackParamList } from '../navigation/MainStack';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useEffect, useState } from 'react';
 import { mapDBWeedkayIdToWeekdayName, mapJsWeekdayToDBWeekdayId } from '../utils/dateHelpers';
-import { getCurrentContentWithInfo } from '../models/AiringModel';
+import { getCurrentContent, getCurrentContentWithInfo } from '../models/AiringModel';
 import { useGlobalLoader } from '../contexts/GlobalLoaderContext';
-import { ContentBlockWithInfoQueryResultRow } from '../models/types';
+import { ContentBlockQueryResultRow, ContentBlockWithInfoQueryResultRow } from '../models/types';
+import { useSettingsContext } from '../contexts/SettingsContext';
+import { Settings } from '../utils/configFileHandler';
 
 export const useAiringViewModel = () => {
     const { navigate, goBack } = useNavigation<NativeStackNavigationProp<MainStackParamList>>();
@@ -13,17 +15,34 @@ export const useAiringViewModel = () => {
     const { id, name } = params;
 
     const { showGlobalLoader, hideGlobalLoader } = useGlobalLoader();
+    const { settings } = useSettingsContext();
 
     const [scheduleDay, setScheduleDay] = useState(new Date().getDay());
-    const [contentBlockInfo, setContentBlockInfo] = useState<ContentBlockWithInfoQueryResultRow>();
+    const [contentBlockInfo, setContentBlockInfo] = useState<ContentBlockQueryResultRow | ContentBlockWithInfoQueryResultRow>({
+        name: '',
+        start_time: '',
+        end_time: '',
+        image: '',
+        overview: ''
+    });
 
     const DBDayId = mapJsWeekdayToDBWeekdayId[scheduleDay];
     const weekdayName = mapDBWeedkayIdToWeekdayName[DBDayId];
 
+    const hideChannelName = settings[Settings.HideChannelNames];
+    const hideMedia = settings[Settings.HideMedia];
+
     useEffect(() => {
         void (async () => {
             showGlobalLoader();
-            const contentInfo = await getCurrentContentWithInfo(id, DBDayId);
+
+            let contentInfo;
+            if (hideMedia) {
+                contentInfo = await getCurrentContent(id, DBDayId);
+            } else {
+                contentInfo = await getCurrentContentWithInfo(id, DBDayId);
+            }
+
             setContentBlockInfo(contentInfo);
             hideGlobalLoader();
         })();
@@ -38,6 +57,7 @@ export const useAiringViewModel = () => {
     };
 
     return {
+        hideChannelName,
         channelName: name,
         weekdayName,
         scheduleDay,

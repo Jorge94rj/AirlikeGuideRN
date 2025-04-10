@@ -5,7 +5,9 @@ import { globalStyles } from '../../styles/global';
 import CircleButton from '../../components/CircleButton';
 
 const ChannelScreen = () => {
-    const { 
+    const {
+        // hideChannelLogos,
+        hideChannelNames, 
         channels,
         warningMessage,
         handleChannelSelection,
@@ -31,6 +33,8 @@ const ChannelScreen = () => {
                         return (
                             <CircleButton
                                 {...circleButtonProps}
+                                title={hideChannelNames ? '' : channel.name}
+                                // image={hideChannelLogos ? '' : channel.icon}
                                 key={channel.id}
                                 onPress={handleChannelSelection}
                             />

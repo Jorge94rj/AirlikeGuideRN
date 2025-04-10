@@ -5,6 +5,7 @@ import { useGetGlobalScreenOptions } from '../hooks/useGetGlobalScreenOptions';
 import HomeTabs from './HomeTabs';
 import ScheduleScreen from '../views/ScheduleScreen';
 import AiringScreen from '../views/AiringScreen';
+import SettingsScreen from '../views/SettingsScreen';
 
 type ChannelParams = {
     id: number,
@@ -16,6 +17,7 @@ export type MainStackParamList = {
     Home: undefined;
     Schedule: ChannelParams;
     Airing: ChannelParams;
+    Settings: undefined;
 }
 
 const Stack = createNativeStackNavigator();
@@ -39,6 +41,11 @@ const MainStack = () => {
                 <Stack.Screen 
                     name="Schedule"
                     component={ScheduleScreen}
+                    options={globalScreenOptions}
+                />
+                <Stack.Screen 
+                    name="Settings"
+                    component={SettingsScreen}
                     options={globalScreenOptions}
                 />
             </Stack.Navigator>

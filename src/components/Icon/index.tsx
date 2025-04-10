@@ -3,12 +3,14 @@ import defaultIcon from './icons/default.png';
 import tvGuideIcon from './icons/tv-guide.png';
 import videoIcon from './icons/video.png';
 import arrowBack from './icons/arrow-back.png';
+import settings from './icons/settings.png';
 
 const icons: Record<string, number> = {
     'default': defaultIcon as number,
     'tv-guide': tvGuideIcon as number,
     'video': videoIcon as number,
-    'arrow-back': arrowBack as number
+    'arrow-back': arrowBack as number,
+    'settings': settings as number
 };
 
 type IconProps = {

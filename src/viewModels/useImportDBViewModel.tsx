@@ -1,7 +1,16 @@
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { importDB, ImportDBStatus } from '../utils/dbHandler';
 import { showDefaultToast } from '../utils/toastHandler';
+import { MainStackParamList } from '../navigation/MainStack';
 
 export const useImportDBViewModel = () => {
+    const { navigate } = useNavigation<NativeStackNavigationProp<MainStackParamList>>();
+
+    const goToSettingsHandler = () => {
+        navigate('Settings');
+    };
+
     const importDBHandler = () => {
         void (async () => {
             const importDBStatus: ImportDBStatus = await importDB();
@@ -21,5 +30,6 @@ export const useImportDBViewModel = () => {
 
     return {
         importDBHandler,
+        goToSettingsHandler
     };
 };

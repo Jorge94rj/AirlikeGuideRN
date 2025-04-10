@@ -38,7 +38,6 @@ export const useChannelViewModel = () => {
 
     const handleChannelSelection = (id: number) => {
         const { name } = channels?.find(channel => channel.id === id) ?? {};
-        // navigate('Schedule', { id, name });
         navigate('Airing', { id, name });
     };
 

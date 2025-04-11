@@ -35,7 +35,7 @@ export const getCurrentContentWithInfo = async (channelId: number, dayId: number
     const { results } = await httpGet<SearchTvSeriesResponse>(`${TMDB_BASE_URL}?query=${content.name}`, TMDB_TOKEN);
     
     if (!results) {
-        return { name: '', start_time: '', end_time: '', image: '', overview: '' };
+        return { ...content, image: '', overview: '' };
     }
 
     const { overview, poster_path } = results[0] ?? {};

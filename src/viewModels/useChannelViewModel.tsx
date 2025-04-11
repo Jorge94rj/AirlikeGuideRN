@@ -3,7 +3,7 @@ import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Mapper } from '../types';
 import { ChannelQueryResultRow, getChannels } from '../models/ChannelModel';
-import { MainStackParamList } from '../navigation/MainStack';
+import { MainStackParamList, Screens } from '../navigation/MainStack';
 import { CircleButtonProps } from '../components/CircleButton';
 import { useSettingsContext } from '../contexts/SettingsContext';
 import { Settings } from '../utils/configFileHandler';
@@ -45,7 +45,7 @@ export const useChannelViewModel = () => {
 
     const handleChannelSelection = (id: number) => {
         const { name } = channels?.find(channel => channel.id === id) ?? {};
-        navigate('Airing', { id, name });
+        navigate(Screens.Airing, { id, name });
     };
 
     return {

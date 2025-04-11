@@ -2,13 +2,13 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { importDB, ImportDBStatus } from '../utils/dbHandler';
 import { showDefaultToast } from '../utils/toastHandler';
-import { MainStackParamList } from '../navigation/MainStack';
+import { MainStackParamList, Screens } from '../navigation/MainStack';
 
 export const useImportDBViewModel = () => {
     const { navigate } = useNavigation<NativeStackNavigationProp<MainStackParamList>>();
 
     const goToSettingsHandler = () => {
-        navigate('Settings');
+        navigate(Screens.Settings);
     };
 
     const importDBHandler = () => {

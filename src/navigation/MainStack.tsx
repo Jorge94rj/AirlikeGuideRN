@@ -7,6 +7,13 @@ import ScheduleScreen from '../views/ScheduleScreen';
 import AiringScreen from '../views/AiringScreen';
 import SettingsScreen from '../views/SettingsScreen';
 
+export enum Screens {
+    Home = 'Home',
+    Airing = 'Airing',
+    Schedule = 'Schedule',
+    Settings = 'Settings'
+}
+
 type ChannelParams = {
     id: number,
     name?: string,
@@ -29,22 +36,22 @@ const MainStack = () => {
         <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen
-                    name="Home"
+                    name={Screens.Home}
                     component={HomeTabs}
                     options={globalScreenOptions}
                 />
                 <Stack.Screen 
-                    name="Airing"
+                    name={Screens.Airing}
                     component={AiringScreen}
                     options={globalScreenOptions}
                 />
                 <Stack.Screen 
-                    name="Schedule"
+                    name={Screens.Schedule}
                     component={ScheduleScreen}
                     options={globalScreenOptions}
                 />
                 <Stack.Screen 
-                    name="Settings"
+                    name={Screens.Settings}
                     component={SettingsScreen}
                     options={globalScreenOptions}
                 />

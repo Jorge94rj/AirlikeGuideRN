@@ -1,5 +1,5 @@
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
-import { MainStackParamList } from '../navigation/MainStack';
+import { MainStackParamList, Screens } from '../navigation/MainStack';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useEffect, useState } from 'react';
 import { mapDBWeedkayIdToWeekdayName, mapJsWeekdayToDBWeekdayId } from '../utils/dateHelpers';
@@ -53,7 +53,7 @@ export const useAiringViewModel = () => {
     };
 
     const onSeeSchedulePress = () => {
-        navigate('Schedule', { id, name, dayId: scheduleDay });
+        navigate(Screens.Schedule, { id, name, dayId: scheduleDay });
     };
 
     return {

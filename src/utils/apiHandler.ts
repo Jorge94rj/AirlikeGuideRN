@@ -17,13 +17,14 @@ const fetchRequest = async <T>({ url, method, body, token }: RequestProps): Prom
         if (method === 'POST' || method === 'PUT') {
             params = { ...params, ...body };
         }
-        const request =  await fetch(url, params);
-        return request.json() as T;
+        const response =  await fetch(url, params);
+        return response.json() as T;
     } catch (err: unknown) {
+        let response = '';
         if (err instanceof Error) {
-            throw new Error(err.message);
+            response = err.message;
         }
-        return err as T;
+        return new Promise((resolve) => resolve(response as T));
     }
 };
 

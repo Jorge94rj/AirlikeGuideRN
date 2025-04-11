@@ -28,6 +28,11 @@ export const getScheduleWithImages = async (
     for (let i = 0; i < scheduleResult.length; i++) {
         const row = scheduleResult[i];
         const { results } = await httpGet<SearchTvSeriesResponse>(`${TMDB_BASE_URL}?query=${row.name}`, TMDB_TOKEN);
+
+        if (!results) {
+            continue;
+        }
+
         const { poster_path } = results[0] ?? {};
         scheduleResult[i].image = `${TMDB_IMG_URL}${poster_path}`;
     }

@@ -32,8 +32,12 @@ export const getCurrentContent = async (channelId: number, dayId: number): Promi
 
 export const getCurrentContentWithInfo = async (channelId: number, dayId: number): Promise<ContentBlockWithInfoQueryResultRow> => {
     const content = await getCurrentContent(channelId, dayId);
-    
     const { results } = await httpGet<SearchTvSeriesResponse>(`${TMDB_BASE_URL}?query=${content.name}`, TMDB_TOKEN);
+    
+    if (!results) {
+        return { name: '', start_time: '', end_time: '', image: '', overview: '' };
+    }
+
     const { overview, poster_path } = results[0] ?? {};
     content.overview = overview;
     content.image = `${TMDB_IMG_URL}${poster_path}`;
